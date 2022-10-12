@@ -13,8 +13,15 @@ function calculateAmount(value){
    
     var l;
     var y = value;
-     l =  y *  500000;
+     l =  y *  50000;
      document.getElementById('out').value = l;
+}
+
+function calculatAmount(value){
+  var a ;
+  var o = value;
+  a = o / 50000;
+  document.getElementById('in').value = a ;
 }
 
 window.userWalletAddress = null

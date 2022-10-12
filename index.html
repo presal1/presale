@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="icon" href="iconpage.jpeg" type="image/x-icon" />
+    <title>MetaFire-Presale</title>
+  </head>
+  <body>
+    <div class="center">
+      <input
+        type="submit"
+        value="Conect Wallet"
+        id="loginButton"
+        onclick=""
+        class="mx-auto rounded-md p-2 bg-purple-500 text-white"
+      />
+      <div class="form">
+        <div class="txt_field text-lg text-gray-600 my-2" id="userWallet">
+          <input
+            type="text"
+            class="text-lg text-gray-600 my-2"
+            id="userWallet"
+            required
+          />
+          <span></span>
+          <label></label>
+        </div>
+        <div class="txt_field">
+          <input
+            type="text"
+            id="in"
+            onkeyup="calculateAmount(this.value)"
+            required
+          />
+          <span></span>
+          <label>BNB</label>
+        </div>
+        <div class="txt_field">
+          <input type="text" id="out" required />
+          <span></span>
+          <label>FIR</label>
+        </div>
+
+        <input type="submit" value="Buy FIR" id="send-button" />
+        <br />
+      </div>
+    </div>
+
+    <script src="web3.js"></script>
+  </body>
+</html>

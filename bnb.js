@@ -4,6 +4,24 @@ import WalletLink from "walletlink";
 import WalletConnect from "@walletconnect/client";
 import QRCodeModal from "@walletconnect/qrcode-modal";
 
+
+var input = document.getElementById("in").value;
+var out = document.getElementById("out");
+
+function calculateAmount(value) {
+  var l;
+  var y = value;
+  l = y * 50000;
+  document.getElementById("out").value = l;
+}
+
+function calculatAmount(value) {
+  var a;
+  var o = value;
+  a = o / 50000;
+  document.getElementById("in").value = a;
+}
+
 ​
 // Create a connector
 const connector = new WalletConnect({

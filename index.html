@@ -4,52 +4,332 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
     <link rel="stylesheet" href="style.css" />
+    <link type="text/css" href="css/neumorphism.css" rel="stylesheet" />
+    <link type="text/css" href="css/custom.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+      integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <link rel="icon" href="iconpage.jpeg" type="image/x-icon" />
-    <title>MetaFire-Presale</title>
+    <title>Document</title>
   </head>
   <body>
-    <div class="center">
-      <input
-        type="submit"
-        value="Conect Wallet"
-        id="loginButton"
-        onclick=""
-        class="mx-auto rounded-md p-2 bg-purple-500 text-white"
-      />
-      <div class="form">
-        <div class="txt_field text-lg text-gray-600 my-2" id="userWallet">
-          <input
-            type="text"
-            class="text-lg text-gray-600 my-2"
-            id="userWallet"
-            required
-          />
-          <span></span>
-          <label></label>
-        </div>
-        <div class="txt_field">
-          <input
-            type="text"
-            id="in"
-            onkeyup="calculateAmount(this.value)"
-            required
-          />
-          <span></span>
-          <label>BNB</label>
-        </div>
-        <div class="txt_field">
-          <input type="text" id="out"  onkeyup="calculatAmount(this.value)" required />
-          <span></span>
-          <label>FIR</label>
+    <nav class="navbar navbar-light bg-light justify-content-between">
+    <img class="img" src="logo.png" alt="" width="70px" height="100px">
+      <div class="form-inline">
+        <a class="home" href=""
+          ><span><i class="fa-solid fa-house"></i></span id='home'>Home</a
+        >
+        <div id="prepare">
+          <button class="btn btn-primary" id="btn-connect">
+            Connect wallet
+          </button>
         </div>
 
-        <input type="submit" value="Buy FIR" id="send-button" />
-        <br />
+        <div id="connected" style="display: none">
+          <button class="btn btn-primary" id="btn-disconnect">
+            Disconnect wallet
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <main
+      class="relative mx-auto w-[85%] "
+    >
+      <div class="div-1">
+        <h1>FIR</h1>
+        <h4>Initial Phase Offering</h4>
+        <p>
+          After purchase, 15% of ZFT will be released on claim date. Afterwards,
+          it will be released automatically in accordance with our vesting
+          schedule
+        </p>
+      </div>
+
+      <div
+      class="bg-[#f6f6ff] rounded-ld grid grid-cols-2 gap-y-7 p-6 rounded-lg mb-3 md:mb-10"
+    >
+      <div>
+        <p class="text-sm">Min Purchase</p>
+        <h3 class="font-bold text-xl text-[#706eff]">2000 FIR</h3>
+      </div>
+      <div>
+        <p class="text-sm">Max Purchase</p>
+        <h3 class="font-bold text-xl text-[#706eff]">500,000 FIR</h3>
+      </div>
+      <div>
+        <p class="text-sm">Total Token for Sale</p>
+        <h3 class="font-bold text-xl text-[#706eff]">1,000,000 FIR</h3>
+      </div>
+      <div>
+        <p class="text-sm">Token Price</p>
+        <h3 class="font-bold text-xl text-[#706eff]">0.00002 BNB</h3>
+      </div>
+      <div>
+        <p class="text-sm">Price in next round</p>
+        <h3 class="font-bold text-xl text-[#706eff]">0.0002 BNB</h3>
       </div>
     </div>
-<script src="bnb.js"></script>
-<!--<script src="web3.js"></script> -->
+    </main>
+    <div class="center">
+        <h1>Buy</h1>
+        
+        <div class="form" id="">
+           
+          <div class="txt_field">
+            <input type="text" id="in"   onkeyup="calculateAmount(this.value)" required>
+            <span></span>
+            <label>BNB</label>
+          </div>
+          <div class="txt_field">
+            <input type="text" id="out"   onkeyup="calculatAmount(this.value)" required>
+            <span></span>
+            <label>FIR</label>
+          </div>
+          
+          <input type="submit" id="send" value="Buy FIR Now"  onclick="send()">
+         
+        </div>
+      </div>
+
+
+      <footer class="d-flex pb-5 pt-6 pt-md-7 border-top border-light bg-primary">
+        <div class="container" id="contact">
+          <div class="row">
+            <div class="col-lg-4">
+              <p>
+                Meta Fire is here with great strength & ability to help DEFI
+                investors to gain access to unique projects & utilities, giving
+                the best to add more value to the Blockchain technology.
+              </p>
+              <ul class="d-flex list-unstyled mb-5 mb-lg-0">
+                <li class="mr-2">
+                  <a
+                    href="https://twitter.com/MetaFire3"
+                    target="_blank"
+                    class="btn btn-icon-only btn-pill btn-primary"
+                    aria-label="twitter social link"
+                    data-toggle="tooltip"
+                    data-placement="top"
+                    title="Follow safutrendz on Twitter"
+                  >
+                    <span aria-hidden="true" class="fab fa-twitter"></span>
+                  </a>
+                </li>
+                <li class="mr-2">
+                  <a
+                    href="https://t.me/metafirre"
+                    target="_blank"
+                    class="btn btn-icon-only btn-pill btn-primary"
+                    aria-label="dribbble social link"
+                    data-toggle="tooltip"
+                    data-placement="top"
+                    title="Subscribe on Telegram"
+                  >
+                    <span aria-hidden="true" class="fab fa-telegram"></span>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://youtube.com/channel/UCRMw3XsPTgAMa425Qtyb4tQ"
+                    target="_blank"
+                    class="btn btn-icon-only btn-pill btn-primary"
+                    aria-label="github social link"
+                    data-toggle="tooltip"
+                    data-placement="top"
+                    title="GitHub Repo"
+                  >
+                    <span aria-hidden="true" class="fab fa-youtube"></span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <div class="col-6 col-lg-2 mb-5 mb-lg-0">
+              <h5>COMPANY</h5>
+              <ul class="footer-links list-unstyled mt-2">
+                <li class="mb-1">
+                  <a class="p-2" target="_blank" href="https://metafire.gitbook.io/metafire/">WhitPaper</a>
+                </li>
+                <li class="mb-1">
+                  <a class="p-2" target="_blank" href="https://metafire.store/#about">Aidrop</a>
+                </li>
+                <li class="mb-1">
+                  <a class="p-2" target="_blank" href="https://metafire.store/#game">Game</a>
+                </li>
+                <li class="mb-1">
+                  <a class="p-2" target="_blank" href="https://metafire.store/#token">Token Info</a>
+                </li>
+                <li class="mb-1">
+                  <a class="p-2" target="_blank" href="https://metafire.store/#roadmap">RoadMap</a>
+                </li>
+                <li class="mb-1">
+                  <a class="p-2" target="_blank" href="https://metafire.store/#team">Team</a>
+                </li>
+                <li class="mb-1">
+                  <a class="p-2" target="_blank" href="https://metafire.store/#partnership"
+                    >Partnership</a
+                  >
+                </li>
+                <li class="mb-1">
+                  <a class="p-2" target="_blank" href="mailto:metafiree@gmail.com"
+                    >Mail Us</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="p-2"
+                    target="_blank"
+                    href="https://twitter.com/MetaFire3"
+                    >News</a
+                  >
+                </li>
+              </ul>
+            </div>
+  
+            <div class="col-12 col-lg-4 mb-5 mb-lg-0">
+              <h5>CONNECT WITH US</h5>
+              <p class="text-gray font-small mt-2">Join us to stay updated</p>
+              <form action="#">
+                <div class="form-row mb-2">
+                  <div class="col-12">
+                    <button
+                      type="submit"
+                      class="btn btn-primary btn-block"
+                      data-loading-text="Sending"
+                    >
+                      <a
+                        href="https://t.me/metafiree"
+                        target="_blank"
+                        style="color: black !important"
+                        ><span>Join Telegram Group</span></a
+                      >
+                    </button>
+  
+                    <button
+                      type="submit"
+                      class="btn btn-primary btn-block"
+                      data-loading-text="Sending"
+                    >
+                      <a
+                        href="https://t.me/metafirre"
+                        target="_blank"
+                        style="color: black !important"
+                        ><span>Join Telegram Channel</span></a
+                      >
+                    </button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+  
+          <div class="row">
+            <div class="col">
+              <a
+                href="index.html"
+                target="_blank"
+                class="d-flex justify-content-center"
+              >
+                <img
+                  src="logo.png"
+                  height="100px"
+                  width="100px"
+                  class="mb-3"
+                  alt="safutrendz Logo"
+                />
+              </a>
+              <div
+                class="d-flex text-center justify-content-center align-items-center"
+                role="contentinfo"
+              >
+                <p class="font-weight-normal font-small mb-0">
+                  Copyright © MetaFire <span class="current-year">2022</span>. All
+                  rights reserved.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+
+  
+
+
+      <link
+      rel="preload"
+      href="_next/static/css/ee480f48f1f77ede.css"
+      as="style"
+    />
+    <link
+      rel="stylesheet"
+      href="_next/static/css/ee480f48f1f77ede.css"
+      data-n-g=""
+    />
+  <noscript data-n-css=""></noscript>
+  <script
+    defer=""
+    nomodule=""
+    src="_next/static/chunks/polyfills-c67a75d1b6f99dc8.js"
+  ></script>
+  <script
+    src="_next/static/chunks/webpack-274c7aa7ee386302.js"
+    defer=""
+  ></script>
+  <script
+    src="_next/static/chunks/framework-4ad76f9093dad09c.js"
+    defer=""
+  ></script>
+  <script
+    src="_next/static/chunks/main-1f17483a0f830ef3.js"
+    defer=""
+  ></script>
+  <script
+    src="_next/static/chunks/pages/_app-0c961ee4f4dfcc2c.js"
+    defer=""
+  ></script>
+  <script
+    src="_next/static/chunks/061e6b60-8e296c1cfbad3785.js"
+    defer=""
+  ></script>
+  <script
+    src="_next/static/chunks/0a6e12db-96c76bbe71d85f33.js"
+    defer=""
+  ></script>
+  <script
+    src="_next/static/chunks/fec483df-292cdce6126c66be.js"
+    defer=""
+  ></script>
+  <script src="_next/static/chunks/499-4886e71427c67d36.js" defer=""></script>
+  <script
+    src="_next/static/chunks/pages/index-704a3ff9ff622800.js"
+    defer=""
+  ></script>
+  <script
+    src="_next/static/SQY3chQJm0ABgn3tfJ41B/_buildManifest.js"
+    defer=""
+  ></script>
+  <script
+    src="_next/static/SQY3chQJm0ABgn3tfJ41B/_ssgManifest.js"
+    defer=""
+  ></script>
+
+  <script src="https://unpkg.com/web3@latest/dist/web3.min.js"></script>
+  <script type="text/javascript" src="https://unpkg.com/web3modal"></script>
+  <script type="text/javascript" src="https://unpkg.com/evm-chains/lib/index.js"></script>
+  <script type="text/javascript" src="https://unpkg.com/@walletconnect/web3-provider"></script>
+  <script type="text/javascript" src="https://unpkg.com/fortmatic@2.0.6/dist/fortmatic.js"></script>
+
+  <script src="bnb.js"></script>
   </body>
 </html>
